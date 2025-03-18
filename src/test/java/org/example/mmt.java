@@ -1,6 +1,10 @@
 package org.example;
 
 import Utility.SeleniumUtility;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +12,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import java.text.DateFormat;
@@ -17,10 +23,23 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class mmt {
-   // @Test
+    ExtentReports extent=new ExtentReports();
+    ExtentTest test;
+    @BeforeClass
+    public void before(){
+        ExtentSparkReporter reporterType=new ExtentSparkReporter("extentReport.html");// HTML report path
+        extent.attachReporter(reporterType);
+    }
+    @AfterClass
+    public void after(){
+        extent.flush();
+    }
+    @Test
     public void m1() throws InterruptedException {
+        test = extent.createTest("TC_001", "Testing description");
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.makemytrip.com/");
+        test.log(Status.INFO    ,"Info 1");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         driver.manage().window().maximize();
         driver.findElement(By.xpath("//span[@data-cy='closeModal']")).click();
@@ -37,6 +56,7 @@ public class mmt {
 
         driver.findElement(By.xpath("//div[@data-cy='returnArea']")).click();
 
+        test.log(Status.INFO,"Info 2");
 
 
         LocalDate dateAfterSevenDays = LocalDate.now().plusDays(7);
@@ -45,9 +65,11 @@ public class mmt {
         String dateAfterSevenDaysString= dateAfterSevenDays.format(formatter);
         String xpath="//div[@aria-label='"+dateAfterSevenDaysString+"']";
         System.out.println(xpath);
+        test.log(Status.PASS,"Info 3");
         SeleniumUtility se=new SeleniumUtility();
         se.scrollToElement(driver,driver.findElement(By.xpath(xpath)));
         Thread.sleep(500);
+        test.log(Status.INFO    ,"Info 4");
         driver.findElement(By.xpath(xpath)).click();
 
 
@@ -67,15 +89,18 @@ public class mmt {
     }
     @Test
     public void m3() throws InterruptedException {
+        test = extent.createTest("TC_002", "Testing description");
+
         ChromeOptions options = new ChromeOptions();
         //options.addArguments("--headless");
         WebDriver driver=new ChromeDriver(options);
+        test.log(Status.INFO,"Info 1");
 
         driver.get("https://www.redbus.in/");
         driver.manage().window().maximize();
         WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
         Thread.sleep(2000);
-
+        test.log(Status.PASS,"Info 2");
         driver.findElement(By.xpath("//i[@class='sc-cSHVUG NyvQv icon icon-datev2']")).click();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,250)", "");
@@ -85,6 +110,7 @@ public class mmt {
           //System.out.println(driver.findElement(By.xpath("//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD'])[2]")).getText());
         }
         driver.findElement(By.xpath("//span[text()='1']")).click();
+        test.log(Status.INFO,"Info 3");
         driver.quit();
 
 
