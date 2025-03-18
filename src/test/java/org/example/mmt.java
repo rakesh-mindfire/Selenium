@@ -16,7 +16,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 public class mmt {
-    @Test
+   // @Test
     public void m1() throws InterruptedException {
         WebDriver driver=new ChromeDriver();
         driver.get("https://www.makemytrip.com/");
