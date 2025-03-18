@@ -6,6 +6,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
@@ -66,7 +67,9 @@ public class mmt {
     }
     @Test
     public void m3() throws InterruptedException {
-        WebDriver driver=new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--headless");
+        WebDriver driver=new ChromeDriver(options);
 
         driver.get("https://www.redbus.in/");
         driver.manage().window().maximize();
@@ -82,6 +85,7 @@ public class mmt {
           //System.out.println(driver.findElement(By.xpath("//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD'])[2]")).getText());
         }
         driver.findElement(By.xpath("//span[text()='1']")).click();
+        driver.quit();
 
 
         //String monthYearVal = driver.findElement(By.xpath("(//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD'])[2]")).g
