@@ -27,6 +27,7 @@ public class BaseClass {
     @BeforeSuite
     public void reportConfig(){
         //ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter("extentReport.html");
+
         ExtentSparkReporter reporterType=new ExtentSparkReporter("extentReport.html");// HTML report path
         extent.attachReporter(reporterType);
     }
