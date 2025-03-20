@@ -105,7 +105,6 @@ public class Second {
         js.executeScript("window.scrollBy(0,250)", "");
         for(int i=0;i<3;i++){
             driver.findElement(By.xpath("(//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD'])[last()]")).click();
-           // Thread.sleep(1000);
           //System.out.println(driver.findElement(By.xpath("//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD'])[2]")).getText());
         }
         driver.findElement(By.xpath("//span[text()='1']")).click();
