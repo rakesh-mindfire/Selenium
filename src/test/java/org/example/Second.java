@@ -32,7 +32,7 @@ public class Second {
     public void after(){
         extent.flush();
     }
-    @Test
+   // @Test
     public void m1() throws InterruptedException {
         test = extent.createTest("TC_001", "Testing description");
         WebDriver driver=new ChromeDriver();
@@ -91,7 +91,7 @@ public class Second {
 
         ChromeOptions options = new ChromeOptions();
         //options.addArguments("--headless");
-        //options.addArguments("--headless");
+
         WebDriver driver=new ChromeDriver(options);
         test.log(Status.INFO,"Info 1");
 
@@ -105,7 +105,6 @@ public class Second {
         js.executeScript("window.scrollBy(0,250)", "");
         for(int i=0;i<3;i++){
             driver.findElement(By.xpath("(//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD'])[last()]")).click();
-           // Thread.sleep(1000);
           //System.out.println(driver.findElement(By.xpath("//div[@class='DayNavigator__IconBlock-qj8jdz-2 iZpveD'])[2]")).getText());
         }
         driver.findElement(By.xpath("//span[text()='1']")).click();
