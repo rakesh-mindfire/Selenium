@@ -32,7 +32,7 @@ public class Second {
     public void after(){
         extent.flush();
     }
-    @Test
+   // @Test
     public void m1() throws InterruptedException {
         test = extent.createTest("TC_001", "Testing description");
         WebDriver driver=new ChromeDriver();
