@@ -16,13 +16,11 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import java.text.DateFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
-public class mmt {
+public class Second {
     ExtentReports extent=new ExtentReports();
     ExtentTest test;
     @BeforeClass

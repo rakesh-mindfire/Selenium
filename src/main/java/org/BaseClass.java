@@ -9,9 +9,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 
 import java.time.Duration;
@@ -22,7 +20,7 @@ public class BaseClass {
     public LoginPage lp;
     public DashBoardpages dashBoardpages;
     public AdminPages adminPages;
-    public ExtentReports extent;
+    public ExtentReports extent=new ExtentReports();
     public ExtentTest test;
     @BeforeSuite
     public void reportConfig(){
@@ -32,20 +30,29 @@ public class BaseClass {
         extent.attachReporter(reporterType);
     }
 
-    @BeforeClass
+    @BeforeMethod
     public void startBrowser(){
          driver=new ChromeDriver();
-        driver.get("https://opensource-demo.orangehrmlive.com/");
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         //driver.
+        driver.get("https://opensource-demo.orangehrmlive.com/");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
         lp=new LoginPage(driver);
         dashBoardpages=new DashBoardpages(driver);
         adminPages=new AdminPages(driver);
 
+
+    }
+    //@BeforeMethod
+    public void beforeMethod(){
+        driver.get("https://opensource-demo.orangehrmlive.com/");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+        lp=new LoginPage(driver);
+        dashBoardpages=new DashBoardpages(driver);
+        adminPages=new AdminPages(driver);
     }
 
-    @AfterClass
+    @AfterMethod(alwaysRun = true)
     public void stopBrowser(){
         driver.quit();
     }
