@@ -91,7 +91,7 @@ public class Second {
 
         ChromeOptions options = new ChromeOptions();
         //options.addArguments("--headless");
-        //options.addArguments("--headless");
+
         WebDriver driver=new ChromeDriver(options);
         test.log(Status.INFO,"Info 1");
 
