@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/rakeshp/Downloads/Selenium/Selenium2/src/test/java/org/example/First.java">
     <classes>
-        <class name="org.example.mmt"/>
+        <class name="org.example.Second"/>
     </classes>
 </test>
 </suite>

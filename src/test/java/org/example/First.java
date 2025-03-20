@@ -5,7 +5,7 @@ import org.BaseClass;
 import org.testng.annotations.Test;
 
 public class First extends BaseClass {
-    @Test
+    //@Test
     public void m1() throws InterruptedException {
        // lp.getUserNameTextField().sendKeys("Admin");
        // lp.getPasswordTextField().sendKeys("admin123");
