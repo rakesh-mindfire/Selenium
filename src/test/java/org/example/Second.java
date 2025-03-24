@@ -48,6 +48,7 @@ public class Second {
         WebElement CurrentDateWebElement=driver.findElement(By.xpath("//div[@aria-label='"+currentdate+"']"));
         seleniumUtility.scrollToElement(driver,CurrentDateWebElement);
         //Thread.sleep(500);
+        //Thread.sleep(500);
         CurrentDateWebElement.click();
         //driver.findElement(CurrentDateWebElement).click();
         seleniumUtility.scrollToElement(driver,driver.findElement(By.xpath("//div[@data-cy='returnArea']")));
