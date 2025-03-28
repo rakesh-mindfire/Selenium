@@ -56,6 +56,7 @@
         <suiteXmlFiles>
           <suiteXmlFile>testng.xml</suiteXmlFile>
         </suiteXmlFiles>
+        <reportsDirectory>${project.build.directory}/test-output</reportsDirectory>
       </configuration>
     </plugin>
   </plugins>
