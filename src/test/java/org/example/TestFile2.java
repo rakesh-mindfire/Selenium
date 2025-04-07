@@ -5,4 +5,6 @@ public class TestFile2 {
     //added second line
     //Some code
 //Added some line
+    //Added last line
+    //Added last line
 }
